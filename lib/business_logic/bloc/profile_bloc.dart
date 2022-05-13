@@ -13,12 +13,10 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       (event, emit) async {
         emit(ProfileUpdateInProgress());
 
-        final profile = Profile(
+        await profileRepository.updateProfile(
           event.name,
           event.surname,
-        );
-
-        await profileRepository.updateProfile(profile)
+        )
             ? emit(ProfileUpdateSuccess())
             : emit(ProfileUpdateFailure());
       },

@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
           } else if (state is ProfileUpdateFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
-                content: Text('Errore: campi vuoti'),
+                content: Text('Errore: uno o più campi vuoti'),
               ),
             );
           }
